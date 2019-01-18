@@ -4,20 +4,16 @@ class App < Sinatra::Base
 
   configure do
     enable :sessions
-    set :session_secret, "secret"
-end
+    set :session_secret, 'flatiron'
+  end
+
+  get '/' do
+    erb :index
+  end
 
   post '/checkout' do
-    session["item"] = @params[:"item"]
+    session[:item] = params[:item]
     @session = session
-
-    Item.new(item[:name])
-    @item=Item.all
-
-end
-
-get '/' do
-
-erb :index
-end
+    erb :checkout
+  end
 end
