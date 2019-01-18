@@ -11,13 +11,13 @@ end
     session["item"] = @params[:"item"]
     @session = session
 
-    Item.new(item[:name])
-    @item=Item.all
+    erb :checkout
 
-end
+  end
 
 get '/' do
 
 erb :index
 end
+
 end
