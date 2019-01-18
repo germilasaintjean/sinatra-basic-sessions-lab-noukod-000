@@ -2,14 +2,15 @@ require_relative 'config/environment'
 
 class App < Sinatra::Base
 
-  configure do
-    enable :sessions
-    set :session_secret, "flatiron"
-end
 
 get '/' do
 
 erb :index
+end
+
+configure do
+  enable :sessions
+  set :session_secret, "flatiron"
 end
 
 post '/checkout' do
